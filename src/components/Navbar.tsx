@@ -4,11 +4,11 @@ import Image from "next/image";
 import { useState } from "react";
 
 const LINKS = [
-  { href: "#about", label: "About Us" },
-  { href: "#websites", label: "Our Websites" },
-  { href: "#apps", label: "Our Apps" },
-  { href: "#contact", label: "Contact" },
-  { href: "#careers", label: "Careers" },
+  { href: "/about", label: "About Us" },
+  { href: "/our-websites", label: "Our Websites" },
+  { href: "/our-apps", label: "Our Apps" },
+  { href: "/contact", label: "Contact" },
+  { href: "/careers", label: "Careers" },
 ];
 
 export default function Navbar() {

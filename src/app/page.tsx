@@ -2,9 +2,11 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Highlights from "@/components/Highlights";
-import About from "@/components/About";
+import About from "@/components/HomeAbout";
 import Websites from "@/components/Websites";
 import Apps from "@/components/Apps";
+import Carreers from "@/components/Carreers";
+import Footer from "@/components/Footer";
 
 export default function Page() {
   return (
@@ -15,6 +17,8 @@ export default function Page() {
       <About />
       <Websites />
       <Apps />
+      <Carreers />
+      <Footer />
     </>
   );
 }
