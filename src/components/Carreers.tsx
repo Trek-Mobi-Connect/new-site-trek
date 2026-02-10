@@ -8,7 +8,7 @@ export default function Careers() {
       <div className="mx-auto max-w-7xl px-4 py-20">
         <div className="grid gap-16 md:grid-cols-2 items-center">
           {/* Texto (esquerda) */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 order-2 md:order-1 ml-8 md:ml-0">
             <h2 className="text-[32px] font-bold text-black">Careers</h2>
 
             <p className="text-[20px] font-medium text-[#404040]">
@@ -51,7 +51,7 @@ export default function Careers() {
           </div>
 
           {/* Imagens (direita) */}
-          <div className="relative w-full h-[400px]">
+          <div className="relative w-full h-[400px] order-1 md:order-2">
             {/* Background decorativo - DEVE FICAR VISÍVEL */}
             <div className="absolute left-0 top-0 w-[70%] h-[70%] pointer-events-none">
               <Image

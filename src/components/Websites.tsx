@@ -1,14 +1,32 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 
 export default function Websites() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
+  
+  const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
+
   return (
     <section id="websites" className="bg-white">
       <div className="mx-auto max-w-6xl px-4 py-12">
-        <div className="rounded-2xl bg-[#FAFAFA] px-8 py-10 grid gap-10 md:grid-cols-2">
+        <div ref={ref} className="rounded-2xl bg-[#FAFAFA] px-8 py-10 grid gap-10 md:grid-cols-2">
           {/* Texto */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="order-2 md:order-1"
+          >
             <h2 className="text-[36px] font-[700] text-black">Websites</h2>
 
             <p className="mt-4 text-[18px] font-[500] text-black">
@@ -26,7 +44,6 @@ export default function Websites() {
               </p>
             </div>
 
-            {/* Botão */}
             <Link
               href="#"
               className="mt-6 inline-flex items-center rounded-full border border-[#08FE08] pl-4 pr-16 h-11 relative group"
@@ -38,20 +55,25 @@ export default function Websites() {
                 </svg>
               </span>
             </Link>
-          </div>
+          </motion.div>
 
           {/* Imagens */}
-          <div className="relative">
-            {/* grid verde decorativa */}
-            <Image
-              src="/website-section-1.png"
-              alt=""
-              width={520}
-              height={420}
-              className="absolute right-0 top-0 w-[520px] h-auto pointer-events-none select-none"
-              priority
-            />
-            {/* mockups/prints */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
+            className="relative order-1 md:order-2"
+          >
+            <motion.div style={{ y }}>
+              <Image
+                src="/website-section-1.png"
+                alt=""
+                width={520}
+                height={420}
+                className="absolute right-0 top-0 w-[520px] h-auto pointer-events-none select-none"
+                priority
+              />
+            </motion.div>
             <Image
               src="/website-section-2.png"
               alt="Websites preview"
@@ -60,7 +82,7 @@ export default function Websites() {
               className="relative z-10 mx-auto w-[560px] h-auto"
               priority
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
