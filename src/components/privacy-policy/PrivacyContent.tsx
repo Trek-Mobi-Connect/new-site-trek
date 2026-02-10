@@ -114,7 +114,7 @@ export default function PrivacyContent() {
             {/* Item 6 */}
             <div className="flex flex-col gap-3">
               <h2 className="text-[24px] font-normal text-[#1A1A1A]">
-                6. Children's Privacy
+                6. Childrens Privacy
               </h2>
               <p className="text-[18px] font-normal leading-6 text-[#404040]">
                 Our services are not directed to children under the age of 13

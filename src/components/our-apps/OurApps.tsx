@@ -18,7 +18,7 @@ export default function Apps() {
             <div className="mt-4 space-y-4 text-[16px] font-[400] leading-relaxed text-[#1A1A1A]">
               <p>
                 Each app is built with the same principles: delivering quality, relevance, and a touch of fun. From informative tools to
-                entertainment-focused experiences, our apps aim to make users' lives easier, more informed, and more enjoyable.
+                entertainment-focused experiences, our apps aim to make users lives easier, more informed, and more enjoyable.
               </p>
             </div>
 
