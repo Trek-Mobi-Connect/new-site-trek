@@ -1,36 +1,52 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 
 export default function Apps() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
     <section id="apps" className="bg-white">
       <div className="mx-auto max-w-6xl px-4 py-12">
-        <div className="rounded-2xl bg-[#FAFAFA] px-8 py-10 grid gap-10 md:grid-cols-2">
-            {/* Imagens (esquerda) */}
-            <div className="relative order-first min-h-[380px]">
+        <div ref={ref} className="rounded-2xl bg-[#FAFAFA] px-8 py-10 grid gap-10 md:grid-cols-2">
+          {/* Imagens (esquerda) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="relative order-first min-h-[380px]"
+          >
             {/* globo verde de fundo */}
             <Image
-                src="/app-section-1.png"
-                alt=""
-                fill
-                className="object-contain pointer-events-none select-none -left-10 top-[-40px]"
-                sizes="(min-width: 768px) 560px, 100vw"
+              src="/app-section-1.png"
+              alt=""
+              fill
+              className="object-contain pointer-events-none select-none -left-10 top-[-40px]"
+              sizes="(min-width: 768px) 560px, 100vw"
             />
 
             {/* mockup dos apps */}
             <Image
-                src="/app-section-2.png"
-                alt="Apps preview"
-                width={560}
-                height={380}
-                className="relative z-10 mx-auto mt-6 w-[520px] max-w-full h-auto"
-                priority
+              src="/app-section-2.png"
+              alt="Apps preview"
+              width={560}
+              height={380}
+              className="relative z-10 mx-auto mt-6 w-[520px] max-w-full h-auto"
+              priority
             />
-            </div>
+          </motion.div>
 
           {/* Texto (direita) */}
-          <div className="order-last">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            className="order-last"
+          >
             <h2 className="text-[36px] font-[700] text-black">Apps</h2>
 
             <p className="mt-4 text-[18px] font-[500] text-black">
@@ -40,7 +56,7 @@ export default function Apps() {
             <div className="mt-4 space-y-4 text-[16px] font-[400] leading-relaxed text-[#1A1A1A]">
               <p>
                 Each app is built with the same principles: delivering quality, relevance, and a touch of fun. From informative tools to
-                entertainment-focused experiences, our apps aim to make users’ lives easier, more informed, and more enjoyable.
+                entertainment-focused experiences, our apps aim to make users' lives easier, more informed, and more enjoyable.
               </p>
             </div>
 
@@ -55,7 +71,7 @@ export default function Apps() {
                 </svg>
               </span>
             </Link>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

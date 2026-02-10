@@ -15,11 +15,11 @@ export default function Footer() {
             <Image
               src="/logo-trek-vertical.svg"
               alt="Trek Mobi"
-              width={250}
-              height={149}
-              className="w-[250px] h-auto"
+              width={140}
+              height={84}
+              className="w-[140px] h-auto"
             />
-            <p className="text-[18px] font-medium leading-6 text-[#F5F5F5] text-center max-w-[240px]">
+            <p className="text-[16px] font-medium leading-6 text-[#F5F5F5] text-center max-w-[240px]">
               Connecting the World Through Content and Technology
             </p>
           </div>
