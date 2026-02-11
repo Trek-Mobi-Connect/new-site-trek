@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function AboutHero() {
   return (
     <section className="bg-white py-12 md:py-20">
-      <div className="mx-auto max-w-7xl px-4">
+      <div className="mx-auto max-w-6xl px-4">
         <div className="grid gap-8 md:gap-16 md:grid-cols-2 items-start">
           {/* Conteúdo texto (esquerda) */}
           <div className="flex flex-col gap-4 max-w-[280px] md:max-w-none mx-auto md:mx-0">

@@ -7,6 +7,7 @@ import Websites from "@/components/Websites";
 import Apps from "@/components/Apps";
 import Carreers from "@/components/Carreers";
 import Footer from "@/components/Footer";
+import HighlightsMarquee from "@/components/HighlightsMarquee";
 
 export default function Page() {
   return (
@@ -16,6 +17,7 @@ export default function Page() {
       <Highlights />
       <About />
       <Websites />
+      <HighlightsMarquee />
       <Apps />
       <Carreers />
       <Footer />

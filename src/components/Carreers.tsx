@@ -53,7 +53,7 @@ export default function Careers() {
 
   return (
     <section id="careers" className="bg-white">
-      <div className="mx-auto max-w-7xl px-4 py-20">
+      <div className="mx-auto max-w-6xl px-4 py-20">
         <motion.div
           ref={sectionRef}
           variants={container}

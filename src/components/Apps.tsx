@@ -21,13 +21,6 @@ const fadeUp: Variants = {
   },
 };
 
-const HIGHLIGHTS = [
-  "50+ Managed Websites",
-  "Apps in Multiple Categories",
-  "Content in 100+ Countries",
-  "Millions of Monthly Users",
-];
-
 export default function Apps() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
@@ -35,28 +28,6 @@ export default function Apps() {
   return (
     <section id="apps" className="bg-white">
       <div className="mx-auto max-w-6xl px-4 py-12">
-
-        {/* ── Marquee com fade nas bordas (CSS mask) ── */}
-        <div className="highlights-marquee-wrapper mb-10 py-6 overflow-hidden select-none">
-          <div className="highlights-marquee inline-flex">
-            {[0, 1].map((copy) => (
-              <div key={copy} className="flex items-center gap-6 shrink-0 pr-6">
-                {HIGHLIGHTS.map((text, i) => (
-                  <div key={`${copy}-${i}`} className="flex items-center gap-6 shrink-0">
-                    <span className="text-[16px] font-medium text-[#A0A0A0] whitespace-nowrap">
-                      {text}
-                    </span>
-                    <span
-                      className="inline-block w-[10px] h-[10px] bg-[#08FE08] shrink-0"
-                      style={{ transform: "rotate(45deg)" }}
-                    />
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
-
         <motion.div
           ref={sectionRef}
           variants={container}
@@ -75,7 +46,7 @@ export default function Apps() {
             />
 
             <Image
-              src="/app-section-2.webp"
+              src="/app-section-2.png"
               alt="Apps preview"
               width={560}
               height={380}
@@ -140,32 +111,6 @@ export default function Apps() {
         </motion.div>
       </div>
 
-      <style jsx global>{`
-        .highlights-marquee-wrapper {
-          -webkit-mask-image: linear-gradient(
-            to right,
-            transparent 0%,
-            black 15%,
-            black 85%,
-            transparent 100%
-          );
-          mask-image: linear-gradient(
-            to right,
-            transparent 0%,
-            black 15%,
-            black 85%,
-            transparent 100%
-          );
-        }
-        @keyframes highlights-scroll {
-          0% { transform: translateX(0) translateZ(0); }
-          100% { transform: translateX(-50%) translateZ(0); }
-        }
-        .highlights-marquee {
-          animation: highlights-scroll 30s linear infinite;
-          will-change: transform;
-        }
-      `}</style>
     </section>
   );
 }

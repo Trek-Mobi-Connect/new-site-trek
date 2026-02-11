@@ -22,9 +22,9 @@ export default function Highlights() {
         initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="mx-auto max-w-[343px] md:max-w-[1280px] rounded-[24px] md:rounded-[100px] bg-black px-8 md:px-[52px] py-10 md:py-6 md:h-[112px]"
+        className="mx-auto max-w-[343px] md:max-w-[1280px] rounded-[24px] md:rounded-[100px] bg-black px-8 md:px-[52px] py-10 md:py-0 md:h-[112px] flex items-center"
       >
-        <ul className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 text-center text-white font-semibold text-[18px] leading-snug">
+        <ul className="flex flex-col md:flex-row items-center justify-center w-full gap-6 md:gap-8 text-center text-white font-semibold text-[18px] leading-snug">
           {items.map((t, i) => (
             <motion.li
               key={t}
@@ -35,10 +35,10 @@ export default function Highlights() {
             >
               <span className="whitespace-pre-line">{t}</span>
               {i < items.length - 1 && (
-                <Image 
-                  src="/rectangle.svg" 
-                  alt="" 
-                  width={12} 
+                <Image
+                  src="/rectangle.svg"
+                  alt=""
+                  width={12}
                   height={12}
                   className="block"
                 />

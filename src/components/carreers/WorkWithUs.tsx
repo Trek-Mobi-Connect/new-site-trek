@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Careers() {
   return (
     <section id="careers" className="bg-white">
-      <div className="mx-auto max-w-7xl px-4 py-20">
+      <div className="mx-auto max-w-6xl px-4 py-20">
         <div className="grid gap-16 md:grid-cols-2 items-center">
           {/* Texto (esquerda) */}
           <div className="flex flex-col gap-4">
@@ -59,7 +59,7 @@ export default function Careers() {
             {/* Imagem vertical alta (direita) - FICA POR CIMA */}
             <div className="absolute right-0 top-0 w-[45%] h-[100%] rounded-[32px] overflow-hidden z-10">
               <Image
-                src="/carrers-2.svg"
+                src="/carreers-2.png"
                 alt="Team collaboration"
                 fill
                 className="object-cover"
@@ -69,7 +69,7 @@ export default function Careers() {
             {/* Imagem horizontal (esquerda/baixo) - FICA POR CIMA */}
             <div className="absolute left-0 bottom-0 w-[52%] h-[45%] rounded-[32px] overflow-hidden z-10">
               <Image
-                src="/carrers-1.svg"
+                src="/carreers-1.png"
                 alt="Team meeting"
                 fill
                 className="object-cover"
