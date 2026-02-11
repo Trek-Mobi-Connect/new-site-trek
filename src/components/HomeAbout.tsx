@@ -154,13 +154,13 @@ export default function About() {
                 Read More
               </span>
 
-              <span className="absolute right-0 top-1/2 -translate-y-1/2 mr-0.5 h-10 w-10 md:h-12 md:w-12 rounded-full bg-[#08FE08] grid place-items-center shadow-[0_0_24px_#08FE08] group-hover:shadow-[0_0_34px_#08FE08] group-hover:scale-110 transition-all duration-300">
+              <span className="absolute right-0 top-1/2 -translate-y-1/2 mr-0.5 h-10 w-10 md:h-12 md:w-12 rounded-full bg-[#08FE08] grid place-items-center shadow-[0_0_24px_#08FE08] group-hover:shadow-[0_0_34px_#08FE08] transition-shadow duration-300">
                 <svg
                   width="16"
                   height="16"
                   viewBox="0 0 24 24"
                   fill="none"
-                  className="md:w-[18px] md:h-[18px] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
+                  className="md:w-[18px] md:h-[18px]"
                 >
                   <path
                     d="M7 17L17 7M17 7H8M17 7V16"

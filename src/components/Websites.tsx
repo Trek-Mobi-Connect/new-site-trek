@@ -13,8 +13,6 @@ import { useRef, useCallback } from "react";
 import type { Variants } from "framer-motion";
 
 const EASE_SMOOTH: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
-
-/* ── Spring config reutilizável ── */
 const SPRING_SOFT = { stiffness: 40, damping: 25, mass: 1 };
 
 const container: Variants = {
@@ -57,15 +55,13 @@ export default function Websites() {
     offset: ["start end", "end start"],
   });
 
-  /* ── Scroll parallax suavizado com spring ── */
   const rawScrollY = useTransform(scrollYProgress, [0, 1], [50, -50]);
   const smoothScrollY = useSpring(rawScrollY, SPRING_SOFT);
 
-  /* ── Mouse parallax suavizado ── */
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  const imgX = useSpring(mouseX, SPRING_SOFT);
-  const imgY = useSpring(mouseY, SPRING_SOFT);
+  const springX = useSpring(mouseX, SPRING_SOFT);
+  const springY = useSpring(mouseY, SPRING_SOFT);
 
   const handleMouseMove = useCallback(
     (e: React.MouseEvent) => {
@@ -89,10 +85,8 @@ export default function Websites() {
           animate={isInView ? "visible" : "hidden"}
           className="relative overflow-hidden rounded-2xl bg-[#FAFAFA] px-8 py-10 grid gap-10 md:grid-cols-2"
         >
-          {/* ── Glow decorativo de fundo ── */}
           <div className="pointer-events-none absolute -bottom-24 -right-24 h-56 w-56 rounded-full bg-[#08FE08]/8 blur-[90px]" />
 
-          {/* ─── Texto com staggered reveal ─── */}
           <div className="order-2 md:order-1 flex flex-col justify-center">
             <motion.div variants={fadeUp} className="relative flex items-center gap-3">
               <motion.span
@@ -127,7 +121,6 @@ export default function Websites() {
               </p>
             </motion.div>
 
-            {/* ── CTA com hover sweep ── */}
             <motion.div variants={fadeUp}>
               <Link
                 href="#"
@@ -139,13 +132,12 @@ export default function Websites() {
                   Read More
                 </span>
 
-                <span className="absolute right-0 top-1/2 -translate-y-1/2 h-11 w-11 rounded-full bg-[#08FE08] grid place-items-center shadow-[0_0_18px_#08FE08] group-hover:shadow-[0_0_30px_#08FE08] group-hover:scale-110 transition-all duration-300">
+                <span className="absolute right-0 top-1/2 -translate-y-1/2 h-11 w-11 rounded-full bg-[#08FE08] grid place-items-center shadow-[0_0_18px_#08FE08] group-hover:shadow-[0_0_30px_#08FE08] transition-shadow duration-300">
                   <svg
                     width="16"
                     height="16"
                     viewBox="0 0 24 24"
                     fill="none"
-                    className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
                   >
                     <path
                       d="M7 17L17 7M17 7H8M17 7V16"
@@ -159,18 +151,12 @@ export default function Websites() {
             </motion.div>
           </div>
 
-          {/* ─── Imagens com parallax suavizado ─── */}
           <motion.div
             variants={scaleIn}
             className="relative order-1 md:order-2"
           >
-            {/* Imagem de fundo — scroll + mouse parallax, tudo via spring */}
             <motion.div
-              style={{
-                y: smoothScrollY,
-                x: imgX,
-                willChange: "transform",
-              }}
+              style={{ y: smoothScrollY, x: springX, willChange: "transform" }}
             >
               <Image
                 src="/website-section-1.png"
@@ -182,8 +168,7 @@ export default function Websites() {
               />
             </motion.div>
 
-            {/* Imagem principal — floating suave via CSS */}
-            <div className="relative z-10 animate-float">
+            <div className="relative z-10 websites-float">
               <Image
                 src="/website-section-2.png"
                 alt="Websites preview"
@@ -194,14 +179,13 @@ export default function Websites() {
               />
             </div>
 
-            {/* CSS animation para floating — mais suave que framer-motion keyframes */}
             <style jsx>{`
-              @keyframes float {
+              @keyframes websites-float {
                 0%, 100% { transform: translateY(0) translateZ(0); }
                 50% { transform: translateY(-8px) translateZ(0); }
               }
-              .animate-float {
-                animation: float 5s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+              .websites-float {
+                animation: websites-float 5s cubic-bezier(0.37, 0, 0.63, 1) infinite;
               }
             `}</style>
           </motion.div>
